@@ -1,0 +1,24 @@
+[package]
+name = "drafting-table"
+version = "0.1.0"
+edition = "2024"
+description = "A layperson's floor-plan drafting table: sketch your dream home to hand to an architect."
+license = "MIT"
+
+[dependencies]
+eframe = "0.37.0"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rfd = "0.18.0"
+directories = "6.0.0"
+chrono = { version = "0.4", default-features = false, features = ["clock", "std", "serde"] }
+svg2pdf = { version = "0.13", default-features = false, features = ["text", "image"] }
+resvg = { version = "0.45", default-features = false, features = ["text"] }
+pdf-writer = "0.12"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
+panic = "abort"
